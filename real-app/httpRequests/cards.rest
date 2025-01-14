@@ -36,11 +36,11 @@ Content-Type: application/json
 }
 
 ### get the all cards
-GET {{local}}/api/cards/
+GET {{local}}/api/cards
 
 ### get my cards
 GET {{local}}/api/cards/my-cards
-x-auth-token:{{adminToken}}
+x-auth-token:{{usertoken}}
 
 ### get a specific card
 GET {{local}}/api/cards/678682b68e887e707fbac9eb

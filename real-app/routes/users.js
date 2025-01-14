@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 const { User, validateUser, validateLoginUser, validateUpdateUser } = require("../schema/users");
 const authMW = require("../middleware/auth");
 const registeredUser = require('../middleware/registered');
-const { logRequest } = require('../logs/functions')
+const { logRequest } = require('../logFunction')
 
 const router = express.Router();
 

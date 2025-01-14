@@ -1,0 +1,7 @@
+# להסתיר את קובץ ה- .env
+.env
+
+# להסתיר את תיקיית node_modules
+node_modules/
+
+

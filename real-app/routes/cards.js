@@ -5,7 +5,7 @@ const { Card, validateCard, generateBizNumber } = require("../schema/cards");
 const { User } = require("../schema/users")
 const authMW = require('../middleware/auth');
 const { object } = require('joi');
-const { logRequest } = require('../logs/functions');
+const { logRequest } = require('../logFunction');
 
 const router = express.Router();
 

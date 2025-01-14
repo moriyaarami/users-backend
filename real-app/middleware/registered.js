@@ -1,4 +1,4 @@
-const { logRequest } = require("../logs/functions");
+const { logRequest } = require("../logFunction");
 const { User } = require("../schema/users");
 
 module.exports = async (req, res, next) => {
