@@ -13,6 +13,7 @@ The system will then check if you have permission to perform a specific action.
 Additionally, I added two bonuses:
 
 -Admin users can change the business number, but only if the number does not already exist in the system.
+
 -For every API call that returns a status code above 400, the error details will be logged to a file. The file name will be the date of that day.
 
 
