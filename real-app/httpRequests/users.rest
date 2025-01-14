@@ -1,0 +1,85 @@
+@local=http://localhost:3001
+
+@adminToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg2NDVjNWYzZGM3NmVhOWVjNGJiMmYiLCJhZG1pbiI6dHJ1ZSwiYml6Ijp0cnVlLCJpYXQiOjE3MzY4NTM0NjV9.7CMhWA47o5a27-n3w0jD6MLjv1A_hz51BynxkEaD74o
+
+@adminId=678645c5f3dc76ea9ec4bb2f
+
+@bizToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg2NDVlZWYzZGM3NmVhOWVjNGJiMzUiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM2ODUzNTA2fQ.utaaqOY4Low8uOC8cNk307ZZWQ3DAPf05mkKinY75JA
+
+@bizId=678645eef3dc76ea9ec4bb35
+
+@usertoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg2NDYwMWYzZGM3NmVhOWVjNGJiM2IiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM2ODUzNTM0fQ.W5ygLVVu1_uLU4YUL-Zx5CbFKknAFAjUqSVWPwqax7w
+
+@userId=67864601f3dc76ea9ec4bb3b
+
+### register user
+POST {{local}}/api/users
+Content-Type: application/json
+
+{
+  "name":{
+    "first": "Jimmy",
+    "last": "Redunal"
+  },
+  "isBusiness":true,
+  "phone" :"0556866638",
+  "email":"us@example.com",
+  "password": "12345678",
+  "address":{
+    "state":"",
+    "country":"USA",
+    "city":"New York",
+    "street":"123 Main St",
+    "houseNumber":"123",
+    "zip":""
+   }
+}
+
+### login user
+POST {{local}}/api/users/login
+Content-Type: application/json
+
+{
+  "email":"us@example.com",
+  "password":"12345678"
+}
+
+### get all the users
+GET {{local}}/api/users/
+x-auth-token:{{adminToken}}
+
+###get user by id
+GET {{local}}/api/users/{{userId}}
+x-auth-token:{{usertoken}}
+
+###edit user by id 
+PUT {{local}}/api/users/{{userId}}
+x-auth-token:{{usertoken}}
+Content-Type: application/json
+
+{
+  "name":{
+    "first":"user",
+    "middle":"user",
+    "last":"user"
+    },
+  "phone" :"0556866638",
+  "address":{
+    "state":"",
+    "country":"USA",
+    "city":"New York",
+    "street":"123 Main St",
+    "houseNumber":"123",
+    "zip":""
+   }
+}
+
+### update user isBusiness status by id
+PATCH {{local}}/api/users/{{userId}}
+x-auth-token:{{usertoken}}
+
+
+### delete user by id
+DELETE {{local}}/api/users/67858b23d4ceff35fd1e2300
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg2NDc4YmM3ZjQ0ZmY2MTY2NDg2MjciLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM2ODU0MDcwfQ.lQ5pV3SmjTx0Op0wQHavROkPqeDIB6wQ0XsqrHOfb3M
+

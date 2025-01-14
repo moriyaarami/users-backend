@@ -1,0 +1,92 @@
+@local=http://localhost:3001
+
+### get id of the card
+
+@adminToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg2NDVjNWYzZGM3NmVhOWVjNGJiMmYiLCJhZG1pbiI6dHJ1ZSwiYml6Ijp0cnVlLCJpYXQiOjE3MzY4NTM0NjV9.7CMhWA47o5a27-n3w0jD6MLjv1A_hz51BynxkEaD74o
+
+@bizToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg2NDVlZWYzZGM3NmVhOWVjNGJiMzUiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM2ODUzNTA2fQ.utaaqOY4Low8uOC8cNk307ZZWQ3DAPf05mkKinY75JA
+
+@usertoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzg2NDYwMWYzZGM3NmVhOWVjNGJiM2IiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM2ODUzNTM0fQ.W5ygLVVu1_uLU4YUL-Zx5CbFKknAFAjUqSVWPwqax7w
+
+
+### post card (just biz user)
+POST {{local}}/api/cards/
+x-auth-token:{{bizToken}}
+Content-Type: application/json
+
+{
+ 
+  "title": "test Card ",
+  "subtitle": "Test Card",
+  "description": "This is a test card",
+  "phone":"0556866638",
+  "email":"test@example.com",
+"web":"http://example.com",
+"image":{
+  "url":"",
+"alt":""
+},
+"address":{
+   "state":"",
+"country":"israel",
+"city":"tel aviv",
+"street":"hashalom",
+"houseNumber":"1"
+}
+}
+
+### get the all cards
+GET {{local}}/api/cards/
+
+### get my cards
+GET {{local}}/api/cards/my-cards
+x-auth-token:{{adminToken}}
+
+### get a specific card
+GET {{local}}/api/cards/678682b68e887e707fbac9eb
+
+### update a card
+PUT {{local}}/api/cards/678682b68e887e707fbac9eb
+x-auth-token:{{adminToken}}
+Content-Type: application/json
+
+{
+  "title": "update Card",
+  "subtitle": "Test Card",
+  "description": "This is a test card",
+  "phone":"0556866638",
+  "email":"test@example.com",
+"web":"http://example.com",
+"image":{
+  "url":"",
+"alt":""
+},
+"address":{
+   "state":"",
+"country":"israel",
+"city":"tel aviv",
+"street":"hashalom",
+"houseNumber":"1"
+}
+}
+### like a card
+PATCH {{local}}/api/cards/678682cd8e887e707fbac9f1
+x-auth-token:{{adminToken}}
+
+### delete a card
+DELETE {{local}}/api/cards/678682b68e887e707fbac9eb
+x-auth-token:{{adminToken}}
+
+### bonus bizNumber
+PATCH {{local}}/api/cards/bizNumber/678682cd8e887e707fbac9f1
+x-auth-token:{{adminToken}}
+
+
+
+
+
+
+
+
+
+
